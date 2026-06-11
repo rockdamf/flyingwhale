@@ -144,6 +144,43 @@
   .prog-note{margin-top:24px;font-size:13.5px;color:var(--mut);text-align:center}
   .brunchlink{display:inline-block;margin-top:22px;font-size:14px;font-weight:800;color:var(--blue-d);text-decoration:none;border-bottom:2px solid var(--soft);padding-bottom:2px}
   .brunchlink:hover{border-color:var(--blue)}
+  .arc-head{margin-top:30px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--blue-d);text-transform:uppercase}
+  .arc-list{display:flex;flex-direction:column;gap:11px;margin-top:14px;max-width:560px}
+  .arc{display:flex;align-items:center;gap:15px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none;color:inherit;transition:.22s}
+  .arc:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(47,147,214,.14);border-color:#bfe0f5}
+  .arc-thumb{flex:none;width:54px;height:54px}
+  .arc-txt{flex:1;min-width:0}
+  .arc-txt b{display:block;font-size:16.5px;font-weight:800;letter-spacing:-0.04em;color:var(--ink)}
+  .arc-txt span{font-size:13px;color:var(--mut)}
+  .arc-arr{flex:none;font-size:19px;color:var(--blue);font-weight:800}
+  /* WORK photo strip — gentle wave slide */
+  .wgcap{margin-top:44px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--blue-d);text-transform:uppercase;margin-bottom:14px}
+  .wgal{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .wgal-track{display:flex;gap:12px;width:max-content;animation:wgslide 95s linear infinite}
+  .wgal:hover .wgal-track{animation-play-state:paused}
+  .wg{flex:none;width:170px;height:110px;border-radius:16px;display:flex;flex-direction:column;justify-content:flex-end;padding:13px 15px;color:#fff;position:relative;overflow:hidden;animation:wgwave 5.5s ease-in-out infinite}
+  .wg .wk{font-size:10px;font-weight:800;letter-spacing:.1em;color:rgba(255,255,255,.82);position:relative;z-index:2}
+  .wg .wl{font-size:14px;font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin-top:2px;position:relative;z-index:2}
+  .wg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:rgba(255,255,255,.12)}
+  .wg1{background:linear-gradient(135deg,#56b0ea,#1577bf)} .wg2{background:linear-gradient(135deg,#2f93d6,#0e5d9e)}
+  .wg3{background:linear-gradient(135deg,#13507f,#07233b)} .wg4{background:linear-gradient(135deg,#7cc0f0,#3a9ddb)}
+  @keyframes wgslide{to{transform:translateX(-50%)}}
+  @keyframes wgwave{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  /* book + booktalk block */
+  .bookblock{display:flex;gap:18px;align-items:center;max-width:660px;margin:30px auto 0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:left}
+  .bb-imgs{display:flex;gap:11px;flex:none}
+  .bb-cover,.bb-talk{position:relative;height:128px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+  .bb-cover{width:94px;background:linear-gradient(135deg,#f4d23a,#e3ad00)}
+  .bb-talk{width:128px;background:linear-gradient(135deg,#2f93d6,#0e5d9e);text-decoration:none}
+  .bb-cover img,.bb-talk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .bb-ph{font-size:11px;font-weight:800;padding:8px;line-height:1.35;position:relative;z-index:1}
+  .bb-cover .bb-ph{color:#5a4600} .bb-talk .bb-ph{color:#fff}
+  .bb-play{position:absolute;right:8px;bottom:8px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.92);color:#1577bf;display:flex;align-items:center;justify-content:center;font-size:11px;z-index:3}
+  .bb-info{flex:1;min-width:0}
+  .bb-info .k{font-size:11px;letter-spacing:.12em;font-weight:800;color:var(--blue-d)}
+  .bb-info h4{font-size:20px;font-weight:800;letter-spacing:-0.04em;margin:5px 0 6px;color:var(--ink)}
+  .bb-info p{font-size:13.5px;color:var(--mut);line-height:1.55;margin-bottom:9px}
+  @media(max-width:620px){.bookblock{flex-direction:column;align-items:stretch}.bb-imgs{justify-content:center}}
 
   /* REFERENCES */
   .ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
@@ -322,6 +359,8 @@
           <p><b>컨퍼런스·행사 기획·운영 · 커뮤니티 빌딩</b> — 사람과 사람을 연결해 다음 단계로 도약합니다.</p></div>
       </div>
     </div>
+    <div class="wgcap">현장 스케치 · 투어 · 워크샵 · 강연</div>
+    <div class="wgal"><div class="wgal-track" id="wgtrack"></div></div>
   </div>
 </section>
 <div class="wdiv"></div>
@@ -375,7 +414,31 @@
         <ul><li>주요 대학·대학원 특강(브랜딩·로컬·커뮤니티)</li><li><b>트레바리</b> ‘커뮤니티 빌더들’ 시즌 3·4·5</li><li>중앙일보 <b>폴인</b> 링커(28편+) · 공공기관 자문</li></ul></div>
     </div>
     <p class="refnote">* 일부 고객사는 보안/관계상 업종·규모로 표기했습니다. 상세 레퍼런스는 회사소개서·미팅에서 안내드립니다.</p>
-    <a class="brunchlink" href="https://brunch.co.kr/@rory/2333" target="_blank">2025년에 한 일, 프로젝트 전부 보기 →</a>
+    <div class="arc-head">연도별 프로젝트</div>
+    <div class="arc-list">
+      <a class="arc" href="https://brunch.co.kr/@rory/2333" target="_blank">
+        <svg class="arc-thumb" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="g25" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#56b0ea"/><stop offset="1" stop-color="#1577bf"/></linearGradient></defs>
+          <rect width="54" height="54" rx="13" fill="url(#g25)"/>
+          <path d="M0 39 C9 34 17 44 27 39 C37 34 45 44 54 39 L54 54 L0 54 Z" fill="rgba(255,255,255,.20)"/>
+          <circle cx="42" cy="12" r="1.7" fill="#fff" opacity=".9"/>
+          <text x="27" y="26" text-anchor="middle" font-family="Nanum Gothic, sans-serif" font-size="14.5" font-weight="800" fill="#fff">2025</text>
+        </svg>
+        <span class="arc-txt"><b>2025년 프로젝트</b><span>강의·인사이트 투어·행사·커뮤니티 전체 보기</span></span>
+        <span class="arc-arr">→</span>
+      </a>
+      <a class="arc" href="https://brunch.co.kr/@rory/2044" target="_blank">
+        <svg class="arc-thumb" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="g24" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#13507f"/><stop offset="1" stop-color="#07233b"/></linearGradient></defs>
+          <rect width="54" height="54" rx="13" fill="url(#g24)"/>
+          <path d="M0 39 C9 34 17 44 27 39 C37 34 45 44 54 39 L54 54 L0 54 Z" fill="rgba(255,255,255,.16)"/>
+          <circle cx="42" cy="12" r="1.7" fill="#fff" opacity=".8"/>
+          <text x="27" y="26" text-anchor="middle" font-family="Nanum Gothic, sans-serif" font-size="14.5" font-weight="800" fill="#fff">2024</text>
+        </svg>
+        <span class="arc-txt"><b>2024년 프로젝트</b><span>LG전자·성수투어·코엑스 굿즈토리 등 전체 보기</span></span>
+        <span class="arc-arr">→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -405,6 +468,21 @@
     <div class="row r2">
       <span class="m">한겨레</span><span class="m">MBC 14F</span><span class="m">한국일보</span><span class="m">김미경 MKTV</span><span class="m">위즈덤2.0</span><span class="m">채널예스</span><span class="m">주간조선</span><span class="m">폴인(folin)</span>
       <span class="m">한겨레</span><span class="m">MBC 14F</span><span class="m">한국일보</span><span class="m">김미경 MKTV</span><span class="m">위즈덤2.0</span><span class="m">채널예스</span><span class="m">주간조선</span><span class="m">폴인(folin)</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="bookblock">
+      <div class="bb-imgs">
+        <div class="bb-cover"><img src="%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EB%B9%8C%EB%8D%94%EB%93%A4%20%EC%B1%85%20%ED%91%9C%EC%A7%80%28%EC%9E%85%EC%B2%B4%29.png" alt="커뮤니티 빌더들 책 표지" onerror="this.remove()"><span class="bb-ph">『커뮤니티<br>빌더들』</span></div>
+        <a class="bb-talk" href="https://brunch.co.kr/magazine/communitybd" target="_blank" style="width:110px"><img src="GL3_2555.jpg" alt="북토크 현장" onerror="this.remove()"><span class="bb-ph">북토크<br>현장</span><span class="bb-play">▶</span></a>
+        <a class="bb-talk" href="https://brunch.co.kr/magazine/communitybd" target="_blank" style="width:110px"><img src="KakaoTalk_Photo_2026-06-11-16-50-54%20015.jpeg" alt="북토크 현장" onerror="this.remove()"><span class="bb-ph">북토크<br>현장</span></a>
+      </div>
+      <div class="bb-info">
+        <span class="k">NEW BOOK · 2026</span>
+        <h4>『커뮤니티 빌더들』</h4>
+        <p>“김미경 대표 강력 추천” — 사람들이 스스로 모이게 만드는, 24년차 전문가의 커뮤니티 기획·운영 노하우.</p>
+        <a class="brunchlink" href="https://brunch.co.kr/magazine/communitybd" target="_blank">북토크 · 커뮤니티 빌더들 이야기 →</a>
+      </div>
     </div>
   </div>
   <div class="wrap" style="text-align:center"><p class="books">저서 <b>『커뮤니티 빌더들』</b>(2026) · 추천사 <b>『자기만의 일』 『잘 되는 커뮤니티는 리더십이 다르다』</b> 등</p>
@@ -508,6 +586,14 @@
   });
   const nav=document.getElementById('nav');
   addEventListener('scroll',()=>{nav.style.boxShadow=scrollY>20?'0 6px 22px rgba(12,17,22,.07)':'none';});
+  // build gentle-wave project strip
+  (function(){
+    const items=[["TOUR","성수 인사이트 투어"],["TOUR","한남 인사이트 투어"],["TOUR","서촌·도산 투어"],["WORKSHOP","팀핏 워크샵"],["WORKSHOP","일하는 방식 워크샵"],["FACILITATE","퍼실리테이팅"],["TALK","퍼스널 브랜딩 강연"],["TALK","커뮤니티 특강"],["TALK","고객경험 강연"],["EVENT","컨퍼런스 운영"],["EVENT","굿즈 컨퍼런스"],["MODERATE","모더레이팅"],["FORUM","포럼 패널"],["NETWORK","네트워킹"],["LECTURE","대학 특강"],["COMMUNITY","커뮤니티 빌딩"],["RITUAL","리추얼 워크샵"],["WALKSHOP","인사이트 투어"]];
+    const t=document.getElementById('wgtrack'); if(!t) return;
+    const cls=['wg1','wg2','wg4','wg3'];
+    const add=()=>items.forEach((it,i)=>{const d=document.createElement('div');d.className='wg '+cls[i%4];d.style.animationDelay=(-(i*0.45)).toFixed(2)+'s';d.innerHTML='<span class="wk">'+it[0]+'</span><span class="wl">'+it[1]+'</span>';t.appendChild(d);});
+    add(); add();
+  })();
 </script>
 </body>
 </html>
