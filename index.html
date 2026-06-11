@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>플라잉웨일 (Flying Whale) — 망망대해에도, 좌표가 있다면</title>
+<meta name="description" content="플라잉웨일(대표 백영선). 기업·기관·개인이 다음 한 걸음을 내딛도록 강의·로컬 인사이트 투어(walkshop)·워크샵·컨퍼런스를 만듭니다. getting better & getting bitter.">
+<link rel="canonical" href="https://hiflyingwhale.com">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hiflyingwhale.com">
+<meta property="og:title" content="플라잉웨일 (Flying Whale) — 망망대해에도, 좌표가 있다면">
+<meta property="og:description" content="강의·로컬 인사이트 투어·워크샵·컨퍼런스로 기업·기관·개인의 다음 한 걸음을 함께 찾습니다. getting better & getting bitter.">
+<meta property="og:image" content="https://hiflyingwhale.com/fw_logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="fw_star.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff; --mist:#f1f7fc; --soft:#e7f1fa; --line:#dce8f2;
+    --ink:#0c1116; --black:#0a0d11; --blue:#2f93d6; --blue-d:#1577bf; --blue-dd:#0e6bb0;
+    --sky-l:#7bbde8; --mut:#5a6b78; --mut2:#8597a4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nanum Gothic',sans-serif;letter-spacing:-0.045em;color:var(--ink);background:var(--paper);line-height:1.66;-webkit-font-smoothing:antialiased;font-style:normal}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+  section{padding:clamp(52px,6.5vw,86px) 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;font-weight:800;color:var(--blue-d);text-transform:uppercase}
+  .eyebrow svg{width:17px;height:17px}
+  h2.head{font-size:clamp(25px,3.6vw,38px);font-weight:800;letter-spacing:-0.055em;line-height:1.14;margin:10px 0;color:var(--ink)}
+  h2.head .bl{color:var(--blue)}
+  .sub{color:var(--mut);font-size:16px;max-width:600px;margin-top:6px}
+  .reveal{opacity:0;transform:translateY(20px);transition:.6s ease}
+  .reveal.in{opacity:1;transform:none}
+  .mist{background:var(--mist)}
+
+  .wdiv{height:40px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='40' viewBox='0 0 1440 40'%3E%3Cpath d='M0,20 C120,6 240,6 360,20 C480,34 600,34 720,20 C840,6 960,6 1080,20 C1200,34 1320,34 1440,20' fill='none' stroke='%232f93d6' stroke-width='2.2'/%3E%3C/svg%3E") repeat-x center;background-size:1440px 40px;opacity:.5;animation:wln 19s linear infinite}
+  @keyframes wln{to{background-position:1440px 0}}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;backdrop-filter:blur(12px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--line);transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:-0.05em;color:var(--ink);text-decoration:none}
+  .brand img{width:25px;height:25px}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:700;opacity:.72;transition:.2s}
+  .nav-links a:hover{opacity:1;color:var(--blue-d)}
+  .nav-cta{background:var(--blue);color:#fff !important;padding:9px 17px;border-radius:8px;opacity:1 !important}
+  .nav-cta:hover{background:var(--blue-d)}
+  @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* HERO */
+  .hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;background:var(--paper)}
+  .hero .wrap{position:relative;z-index:3;width:100%;padding-top:60px;padding-bottom:13vh}
+  .hero h1{font-size:clamp(38px,6.6vw,76px);font-weight:800;line-height:1.05;letter-spacing:-0.06em;color:var(--ink);margin-top:16px}
+  .hero h1 .bl{color:var(--blue)}
+  .hero .lede{font-size:clamp(16px,2vw,19px);color:var(--mut);margin-top:18px;max-width:520px}
+  .hero .lede b{color:var(--ink)}
+  .hl{color:var(--blue);box-shadow:inset 0 -0.16em 0 rgba(47,147,214,.20)}
+  .trust{margin-top:22px;font-size:12.5px;color:var(--mut2);font-weight:700}
+  .trust b{color:var(--blue-d)}
+  .tagchip{display:inline-block;margin-top:22px;border:1.5px solid var(--blue);color:var(--blue-d);padding:7px 16px;border-radius:8px;font-size:13.5px;font-weight:800}
+  .cta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 26px;border-radius:9px;font-weight:800;font-size:15px;text-decoration:none;transition:.2s;cursor:pointer}
+  .btn-pri{background:var(--blue);color:#fff;box-shadow:0 10px 22px rgba(47,147,214,.3)}
+  .btn-pri:hover{background:var(--blue-d);transform:translateY(-2px)}
+  .btn-gho{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-gho:hover{border-color:var(--blue);color:var(--blue-d)}
+  .sea{position:absolute;left:0;right:0;bottom:0;height:30%;z-index:1;pointer-events:none}
+  .wb{position:absolute;left:0;bottom:0;width:200%;height:100%;background-repeat:repeat-x;background-position:0 bottom;background-size:1440px 100%}
+  .wb1{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='220' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,90 C120,52 240,52 360,90 C480,128 600,128 720,90 C840,52 960,52 1080,90 C1200,128 1320,128 1440,90 L1440,220 L0,220Z' fill='%23cfe7f8'/%3E%3C/svg%3E");opacity:.85;animation:flow 22s linear infinite}
+  .wb2{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='220' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,112 C160,74 320,74 480,112 C640,150 800,150 960,112 C1120,74 1280,74 1440,112 L1440,220 L0,220Z' fill='%237dbbe6'/%3E%3C/svg%3E");opacity:.8;animation:flow 15s linear infinite reverse}
+  .wb3{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='220' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,134 C120,108 240,108 360,134 C480,160 600,160 720,134 C840,108 960,108 1080,134 C1200,160 1320,160 1440,134 L1440,220 L0,220Z' fill='%232f93d6'/%3E%3C/svg%3E");opacity:.95;animation:flow 26s linear infinite}
+  @keyframes flow{to{transform:translateX(-1440px)}}
+
+  /* STATS — black visual block */
+  .stats{background:var(--black);color:#fff;padding:18px 0}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .stat{padding:3px 16px;border-left:1px solid rgba(255,255,255,.12)}
+  .stat:first-child{border-left:none}
+  .stat .n{font-size:clamp(20px,2.4vw,27px);font-weight:800;letter-spacing:-0.04em;line-height:1}
+  .stat .n .u{font-size:13px;color:var(--sky-l)}
+  .stat .l{font-size:11.5px;color:#9fb0bd;margin-top:4px}
+  @media(max-width:680px){.stats .grid{grid-template-columns:1fr 1fr;gap:18px 10px}}
+
+  /* PHILOSOPHY */
+  .philo{text-align:center}
+  .gbline{font-size:clamp(26px,4.4vw,46px);font-weight:800;letter-spacing:-0.05em;line-height:1.08;margin:12px 0 14px;color:var(--ink)}
+  .gbline .bl{color:var(--blue)} .gbline .amp{color:#b9d2e4}
+  .wavetext .wv{display:inline-block;animation:bob 2.8s ease-in-out infinite;will-change:transform}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .mani{font-size:clamp(17px,2.1vw,21px);font-weight:700;letter-spacing:-0.04em;line-height:1.5;max-width:660px;margin:0 auto;color:#27333d}
+  .mani b{color:var(--blue-d)}
+  .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px;text-align:left}
+  .val{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:.22s}
+  .val:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(47,147,214,.12);border-color:#cfe4f4}
+  .ic{width:38px;height:38px;border-radius:10px;background:var(--soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .ic svg{width:22px;height:22px;stroke:var(--blue-d);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .val .k{font-size:11px;letter-spacing:.1em;color:var(--blue-d);font-weight:800;text-transform:uppercase}
+  .val h3{font-size:20px;font-weight:800;letter-spacing:-0.04em;margin:4px 0 7px;color:var(--ink)}
+  .val p{color:var(--mut);font-size:14.5px}
+
+  /* WORK — rising journey */
+  .journey{position:relative;margin-top:44px}
+  .journey::before{content:"";position:absolute;left:29px;top:24px;bottom:34px;width:3px;border-radius:3px;
+    background:linear-gradient(180deg,#cfe7f8,#3a9ddb 50%,#0e6bb0)}
+  .jstep{position:relative;display:grid;grid-template-columns:60px 1fr;gap:26px;padding-bottom:30px;align-items:start}
+  .jstep:last-child{padding-bottom:0}
+  .jnode{position:relative;z-index:2;width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#46a3df,#0e6bb0);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 12px 24px rgba(47,147,214,.34);transition:.28s}
+  .jstep:hover .jnode{transform:translateY(-4px) rotate(-4deg) scale(1.06)}
+  .jnode svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+  .jbody{padding-top:3px;min-width:0}
+  .jhead{display:flex;align-items:center;gap:14px;margin-bottom:7px}
+  .jnum{font-size:clamp(32px,4.6vw,50px);font-weight:800;color:#d4e6f6;line-height:.8;letter-spacing:-0.05em}
+  .jtitle h3{font-size:clamp(20px,2.6vw,25px);font-weight:800;letter-spacing:-0.05em;color:var(--ink);line-height:1.05}
+  .jtitle .en{font-size:11px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}
+  .jbody p{color:#46535d;font-size:15px;max-width:580px;line-height:1.55}
+  .jbody p b{color:var(--ink)}
+  .jstep.dest .jnode{background:linear-gradient(135deg,#2f93d6,#0b4f86)}
+  /* SIGNATURE PROGRAMS */
+  .prog-feat{margin-top:38px;display:grid;grid-template-columns:1.2fr 1fr;border-radius:20px;overflow:hidden;
+    background:linear-gradient(135deg,#2f93d6,#0e5d9e);color:#fff;box-shadow:0 20px 44px rgba(47,147,214,.26)}
+  .prog-feat .ft-l{padding:34px 36px}
+  .ft-tag{font-size:11px;letter-spacing:.14em;font-weight:800;color:#dff0fc;text-transform:uppercase}
+  .prog-feat h3{font-size:clamp(21px,2.7vw,29px);font-weight:800;letter-spacing:-0.05em;margin:10px 0 12px;line-height:1.18}
+  .prog-feat p{color:#eaf6ff;font-size:14.5px;line-height:1.62;max-width:440px}
+  .ft-link{display:inline-block;margin-top:16px;color:#fff;font-weight:800;font-size:14px;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.55);padding-bottom:2px;transition:.2s}
+  .ft-link:hover{border-color:#fff}
+  .prog-feat .ft-r{background:rgba(255,255,255,.10);display:flex;align-items:center;padding:30px 32px}
+  .ft-rt{font-size:11px;letter-spacing:.14em;font-weight:800;color:#dff0fc;text-transform:uppercase;margin-bottom:11px}
+  .ft-chips{display:flex;flex-wrap:wrap;gap:7px;max-width:240px}
+  .ft-chips span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);border-radius:20px;padding:5px 13px;font-size:13px;font-weight:700}
+  .ft-rn{margin-top:14px;font-size:13px;color:#eaf6ff} .ft-rn b{color:#fff;font-weight:800}
+  .prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+  .pc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px;transition:.22s;display:flex;flex-direction:column}
+  .pc:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(47,147,214,.14);border-color:#cfe4f4}
+  .pc .pct{align-self:flex-start;font-size:11px;letter-spacing:.04em;font-weight:800;color:var(--blue-d);background:var(--soft);border-radius:20px;padding:4px 11px}
+  .pc h4{font-size:18px;font-weight:800;letter-spacing:-0.045em;margin:14px 0 7px;color:var(--ink)}
+  .pc p{font-size:13.8px;color:#46535d;line-height:1.55;flex:1}
+  .pc .plink{margin-top:12px;font-size:13px;font-weight:800;color:var(--blue);text-decoration:none}
+  .pc .plink:hover{color:var(--blue-d)}
+  .prog-note{margin-top:24px;font-size:13.5px;color:var(--mut);text-align:center}
+  .brunchlink{display:inline-block;margin-top:22px;font-size:14px;font-weight:800;color:var(--blue-d);text-decoration:none;border-bottom:2px solid var(--soft);padding-bottom:2px}
+  .brunchlink:hover{border-color:var(--blue)}
+
+  /* REFERENCES */
+  .ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+  .rcard{border:1px solid var(--line);border-radius:14px;padding:24px;background:#fff;transition:.2s}
+  .rcard:hover{box-shadow:0 14px 32px rgba(47,147,214,.1);transform:translateY(-3px)}
+  .rcard .rh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .rcard .rn{font-size:11px;font-weight:800;color:#fff;background:var(--blue);border-radius:7px;padding:3px 8px}
+  .rcard h3{font-size:17.5px;font-weight:800;letter-spacing:-0.04em;color:var(--ink)}
+  .rcard ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .rcard li{font-size:14px;color:#3c4a57;padding-left:15px;position:relative;line-height:1.5}
+  .rcard li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--blue)}
+  .rcard li b{color:var(--ink)}
+  .refnote{margin-top:18px;font-size:12.5px;color:var(--mut2)}
+
+  /* PARTNERS */
+  .pttl{font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--mut);margin:30px 0 12px}
+  .plist{display:flex;flex-wrap:wrap;gap:8px}
+  .plogo{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 16px;font-size:14px;font-weight:700;color:#2a3a48}
+  .plogo.big{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  /* MEDIA */
+  .media{text-align:center}
+  .marq{overflow:hidden;margin-top:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .marq .row{display:flex;gap:10px;width:max-content}
+  .marq .r1{animation:scroll 36s linear infinite}
+  .marq .r2{animation:scroll 31s linear infinite reverse;margin-top:10px}
+  .m{background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 18px;font-weight:700;font-size:14.5px;color:var(--blue-dd);white-space:nowrap}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .books{margin-top:30px;font-size:14px;color:var(--mut)}
+  .books b{color:var(--ink)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:30px;align-items:start}
+  .quote{font-size:clamp(18px,2.3vw,23px);font-weight:800;letter-spacing:-0.04em;line-height:1.45;color:var(--ink);margin:16px 0 18px;border-left:4px solid var(--blue);padding-left:16px}
+  .quote span{display:block;font-size:13px;font-weight:700;color:var(--mut);margin-top:8px}
+  .twin{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .twin div{flex:1;min-width:150px;background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .twin b{display:block;font-size:16px;letter-spacing:-0.03em;margin-bottom:2px;color:var(--ink)}
+  .twin small{color:var(--mut);font-size:12.5px}
+  .edu{font-size:13px;color:var(--mut)} .edu b{color:var(--ink)}
+  .tl{list-style:none}
+  .tl li{display:flex;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .tl .yr{flex:none;width:100px;font-weight:800;color:var(--blue-d);font-size:12.5px}
+  .tl .now{color:var(--ink)}.tl .past{color:var(--mut)}
+
+  /* PROPOSE */
+  .proc{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 26px}
+  .pstep{flex:1;min-width:120px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 14px;text-align:center}
+  .pstep b{display:block;font-size:11px;color:var(--blue);font-weight:800;letter-spacing:.08em}
+  .pstep span{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-0.03em}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+  .pcard{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:.2s}
+  .pcard:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+  .pcard:hover *{color:#fff !important}
+  .pcard b{font-size:16px;font-weight:800;letter-spacing:-0.04em;display:block}
+  .pcard span{font-size:12.5px;color:var(--mut)}
+  .pcard .arr{font-size:18px;flex:none;color:var(--blue)}
+  .briefcta{margin-top:22px}
+
+  /* CONTACT */
+  .contact{background:var(--blue);color:#fff;text-align:center}
+  .contact h2{font-size:clamp(25px,4vw,40px);font-weight:800;letter-spacing:-0.055em;line-height:1.18}
+  .contact p{color:#eaf6ff;margin-top:12px;font-size:16px}
+  .ctlist{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.42);padding:12px 20px;border-radius:9px;color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;transition:.2s}
+  .pill:hover{background:#fff;color:var(--blue-d)}
+
+  footer{background:var(--black);color:#8497a5;padding:34px 0;text-align:center;font-size:13px}
+  footer .brand{justify-content:center;color:#fff;margin-bottom:8px}
+  footer a{color:var(--sky-l);text-decoration:none}
+
+  @media(max-width:820px){.vals,.ref-grid,.about-grid{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}
+    .prog-feat{grid-template-columns:1fr}.prog-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:540px){.prog-grid{grid-template-columns:1fr}}
+  @media(max-width:760px){.hero{min-height:auto;padding:104px 0 56px}
+    .journey::before{left:25px}.jstep{grid-template-columns:52px 1fr;gap:18px}.jnode{width:52px;height:52px;border-radius:15px}.jnode svg{width:24px;height:24px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="fw_star.png" alt="플라잉웨일">플라잉웨일</a>
+    <div class="nav-links">
+      <a href="#philo">철학</a>
+      <a href="#work">하는 일</a>
+      <a href="#programs">프로그램</a>
+      <a href="#ref">레퍼런스</a>
+      <a href="#media">미디어</a>
+      <a class="nav-cta" href="#propose">제안하기</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="sea"><div class="wb wb1"></div><div class="wb wb2"></div><div class="wb wb3"></div></div>
+  <div class="wrap">
+    <div class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1577bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4 L11 11 L8.4 15.6 L13 13 Z"/></svg>
+      플라잉웨일 · 1인 &amp; 커뮤니티 컴퍼니
+    </div>
+    <h1>망망대해에도,<br><span class="hl">좌표</span>가 있다면.</h1>
+    <p class="lede">길을 잃지 않도록, 다음 한 걸음의 <b>방향</b>을 함께 찾습니다. 강의 · 로컬 인사이트 투어 · 워크샵 · 컨퍼런스로.</p>
+    <div><span class="tagchip">getting better &amp; getting bitter</span></div>
+    <div class="cta">
+      <a class="btn btn-pri" href="#propose">함께할 일 제안하기</a>
+      <a class="btn btn-gho" href="flyingwhale_brief.pdf" download>회사소개서 (PDF)</a>
+    </div>
+    <p class="trust">지금까지 <b>삼성그룹 · 현대차그룹 · LG전자 · 네이버 · 문화체육관광부</b> 등과 함께해 왔습니다.</p>
+  </div>
+</header>
+
+<!-- STATS (black block) -->
+<section class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat"><div class="n">2019<span class="u">~</span></div><div class="l">플라잉웨일 7년차</div></div>
+      <div class="stat"><div class="n">6<span class="u">개 지역</span></div><div class="l">성수·한남 등 인사이트 투어</div></div>
+      <div class="stat"><div class="n">50<span class="u">회+</span></div><div class="l">방송·매거진·유튜브 소개</div></div>
+      <div class="stat"><div class="n">6<span class="u">권+</span></div><div class="l">저서 · 추천사</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philo mist" id="philo">
+  <div class="wrap reveal">
+    <div class="eyebrow">Philosophy · 철학</div>
+    <div class="gbline wavetext"><span class="bl">getting better</span> <span class="amp">&amp;</span> <span class="bl">getting bitter</span></div>
+    <p class="mani">일은 좋아질 때도, 쓰디쓸 때도 있습니다.<br>중요한 건 늘 그다음 — 우리는 함께 <b>다음 한 걸음</b>을 찾습니다.</p>
+    <div class="vals">
+      <div class="val">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 4v5h-5"/></svg></div>
+        <div class="k">Ritual · 꾸준함</div><h3>루틴과 리추얼</h3><p>거창함보다 꾸준함. 매일의 작은 반복이 가장 멀리 데려갑니다.</p>
+      </div>
+      <div class="val">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 3H4v4"/><path d="M16 3h4v4"/><path d="M8 21H4v-4"/><path d="M16 21h4v-4"/></svg></div>
+        <div class="k">Beyond · 도전</div><h3>경계의 확장</h3><p>익숙한 경계 밖으로 데려갑니다. 생각도, 경험도.</p>
+      </div>
+      <div class="val">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9.5 12a3 3 0 0 1 3-3H15a3.5 3.5 0 0 1 0 7h-1"/><path d="M14.5 12a3 3 0 0 1-3 3H9a3.5 3.5 0 0 1 0-7h1"/></svg></div>
+        <div class="k">Together · 연대</div><h3>연결과 연대</h3><p>혼자 말고, 함께 멀리. 연결이 쌓일수록 더 오래갑니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="wdiv"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap reveal">
+    <div class="eyebrow">What we do · 하는 일</div>
+    <h2 class="head">사색 <span class="bl">→</span> 걷기 <span class="bl">→</span> 뛰기 <span class="bl">→</span> 도약</h2>
+    <p class="sub">강의 한 번으로 끝나지 않게 — 생각을 현장으로, 현장을 실행으로 잇습니다.</p>
+    <div class="journey">
+      <div class="jstep">
+        <div class="jnode"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.5.4.8 1 .8 1.7v.2h6v-.2c0-.7.3-1.3.8-1.7A6 6 0 0 0 12 3Z"/></svg></div>
+        <div class="jbody"><div class="jhead"><span class="jnum">01</span><div class="jtitle"><h3>사색</h3><span class="en">Think</span></div></div>
+          <p><b>강의 · 인사이트 · 자문</b> — 퍼스널 브랜딩, 커뮤니티, 브랜드경험 · 고객경험으로 시야를 넓힙니다.</p></div>
+      </div>
+      <div class="jstep">
+        <div class="jnode"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 0 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+        <div class="jbody"><div class="jhead"><span class="jnum">02</span><div class="jtitle"><h3>걷기</h3><span class="en">Walk</span></div></div>
+          <p><b>로컬 인사이트 투어(walkshop)</b> — 성수·한남·서촌·도산을 직접 걸으며 현장을 읽습니다.</p></div>
+      </div>
+      <div class="jstep">
+        <div class="jnode"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <div class="jbody"><div class="jhead"><span class="jnum">03</span><div class="jtitle"><h3>뛰기</h3><span class="en">Run</span></div></div>
+          <p><b>워크샵 · 팀핏 · 퍼실리테이팅</b> — 팀이 실제로 움직이도록 가속을 붙입니다.</p></div>
+      </div>
+      <div class="jstep dest">
+        <div class="jnode"><svg viewBox="0 0 24 24"><path d="M12 3c2.9 1.7 4.3 4.9 4.3 8L14.4 13H9.6L7.7 11c0-3.1 1.4-6.3 4.3-8Z"/><circle cx="12" cy="9.2" r="1.4"/><path d="M9.6 14.3c-1.5 1-2.1 2.9-2.1 4.4 1.5 0 3.3-.7 4.1-2.1"/><path d="M14.4 14.3c1.5 1 2.1 2.9 2.1 4.4-1.5 0-3.3-.7-4.1-2.1"/></svg></div>
+        <div class="jbody"><div class="jhead"><span class="jnum">04</span><div class="jtitle"><h3>도약</h3><span class="en">Leap</span></div></div>
+          <p><b>컨퍼런스·행사 기획·운영 · 커뮤니티 빌딩</b> — 사람과 사람을 연결해 다음 단계로 도약합니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="wdiv"></div>
+
+<!-- SIGNATURE PROGRAMS -->
+<section class="mist" id="programs">
+  <div class="wrap reveal">
+    <div class="eyebrow">Signature · 대표 프로그램</div>
+    <h2 class="head">이런 걸, <span class="bl">같이</span> 합니다</h2>
+    <p class="sub">지금 해결하고 싶은 문제에 맞게 선택하세요. 보다 자세한 프로그램은 협의가 필요합니다.</p>
+
+    <div class="prog-feat">
+      <div class="ft-l">
+        <div class="ft-tag">Signature · 기업/기관/단체/개인 대상</div>
+        <h3>로컬 인사이트 투어<br>‘걷는 워크샵 (walkshop)’</h3>
+        <p>성수·북촌 등 플래그십·팝업이 많은 곳을 함께 걷습니다. 보고서가 아니라 현장에서 브랜드와 고객경험을 읽는, 플라잉웨일의 시그니처. 삼성·현대차·LG 임원들이 이 길을 함께 걸었습니다.</p>
+        <a class="ft-link" href="https://brunch.co.kr/@rory/2343" target="_blank">성수 인사이트 투어 이야기 보기 →</a>
+      </div>
+      <div class="ft-r">
+        <div>
+          <div class="ft-rt">투어 지역 · 서울</div>
+          <div class="ft-chips"><span>성수</span><span>북촌</span><span>한남</span><span>서촌</span><span>연남</span><span>도산</span></div>
+          <div class="ft-rn">회차로는 <b>성수</b>가 압도적입니다.<br>서울 외 지역도 협의 가능.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-grid">
+      <div class="pc"><span class="pct">팀 · 조직</span><h4>팀핏 워크샵</h4><p>우리 팀이 일하는 방식을, 우리 손으로 다시 설계합니다.</p></div>
+      <div class="pc"><span class="pct">개인 · 구성원</span><h4>퍼스널 브랜딩 강의</h4><p>직무가 아니라 ‘자기만의 업’을 세우도록 돕습니다.</p></div>
+      <div class="pc"><span class="pct">조직 · 브랜드</span><h4>컨퍼런스 · 행사 기획·운영</h4><p>사람을 모으고, 메시지를 남기고, 판을 키웁니다.</p><a class="plink" href="https://brunch.co.kr/@rory/2290" target="_blank">굿즈 컨퍼런스 →</a></div>
+      <div class="pc"><span class="pct">브랜드 · 조직</span><h4>커뮤니티 빌딩</h4><p>한 번의 이벤트가 아니라, 지속되는 연결을 만듭니다.</p></div>
+    </div>
+    <p class="prog-note">그 밖에 코칭 · 컨설팅 · 멘토링 · 자문 · 교육프로그램 기획까지 — 무엇이든 협의해요.</p>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="ref">
+  <div class="wrap reveal">
+    <div class="eyebrow">References · 레퍼런스</div>
+    <h2 class="head">최근 2년, 함께한 일</h2>
+    <div class="ref-grid">
+      <div class="rcard"><div class="rh"><span class="rn">01</span><h3>로컬 인사이트 투어 (walkshop)</h3></div>
+        <ul><li><b>삼성그룹 · 현대차그룹</b> 임원 성수 투어</li><li><b>삼성</b> 신임임원 100인 · <b>KT&amp;G</b> 임원 한남 투어</li><li>대기업 자산운용 연남·연희 / 도산·서촌·공주 등 6개 지역</li></ul></div>
+      <div class="rcard"><div class="rh"><span class="rn">02</span><h3>기업 강연 · 워크샵</h3></div>
+        <ul><li>대기업 신입 공채 <b>브랜드경험 · 고객경험</b> 특강</li><li>임직원 커뮤니티 특강 · 팀 ‘일하는 방식’ 워크샵</li><li>NH 애그테크 청년창업 · 공공 문화재단 직원 워크샵</li></ul></div>
+      <div class="rcard"><div class="rh"><span class="rn">03</span><h3>행사 · 컨퍼런스 기획/운영</h3></div>
+        <ul><li><b>코엑스</b> 굿즈 컨퍼런스(소싱인마켓) 4년 연속</li><li>커먼그라운드 ‘어반피크닉’ 토크 기획·진행</li><li>박람회·축제 토크 / 모더레이팅 다수</li></ul></div>
+      <div class="rcard"><div class="rh"><span class="rn">04</span><h3>대학 강의 · 커뮤니티 · 자문</h3></div>
+        <ul><li>주요 대학·대학원 특강(브랜딩·로컬·커뮤니티)</li><li><b>트레바리</b> ‘커뮤니티 빌더들’ 시즌 3·4·5</li><li>중앙일보 <b>폴인</b> 링커(28편+) · 공공기관 자문</li></ul></div>
+    </div>
+    <p class="refnote">* 일부 고객사는 보안/관계상 업종·규모로 표기했습니다. 상세 레퍼런스는 회사소개서·미팅에서 안내드립니다.</p>
+    <a class="brunchlink" href="https://brunch.co.kr/@rory/2333" target="_blank">2025년에 한 일, 프로젝트 전부 보기 →</a>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="mist">
+  <div class="wrap reveal">
+    <div class="eyebrow">Partners · 함께한 곳</div>
+    <h2 class="head">신뢰로 이어진 파트너</h2>
+    <p class="pttl">대표 기업</p>
+    <div class="plist"><span class="plogo big">삼성그룹</span><span class="plogo big">현대차그룹</span><span class="plogo big">KT&amp;G</span><span class="plogo big">LG</span><span class="plogo big">네이버</span><span class="plogo big">카카오</span><span class="plogo">코엑스</span><span class="plogo">트레바리</span></div>
+    <p class="pttl">기관 · 공공 · 교육</p>
+    <div class="plist"><span class="plogo">문화체육관광부</span><span class="plogo">문화예술위원회</span><span class="plogo">예술경영지원센터</span><span class="plogo">서울문화재단</span><span class="plogo">경기문화재단</span><span class="plogo">노원문화재단</span><span class="plogo">주요 대학·대학원 다수</span></div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section class="media" id="media">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center">As featured in · 미디어</div>
+    <h2 class="head">기록이 곧 <span class="bl">신뢰</span>입니다</h2>
+  </div>
+  <div class="marq">
+    <div class="row r1">
+      <span class="m">SBS 교양이를부탁해</span><span class="m">롱블랙 광고모델</span><span class="m">세바시</span><span class="m">매경이코노미</span><span class="m">이데일리</span><span class="m">동아비즈니스리뷰</span><span class="m">조선일보 톱클래스</span><span class="m">중앙일보</span>
+      <span class="m">SBS 교양이를부탁해</span><span class="m">롱블랙 광고모델</span><span class="m">세바시</span><span class="m">매경이코노미</span><span class="m">이데일리</span><span class="m">동아비즈니스리뷰</span><span class="m">조선일보 톱클래스</span><span class="m">중앙일보</span>
+    </div>
+    <div class="row r2">
+      <span class="m">한겨레</span><span class="m">MBC 14F</span><span class="m">한국일보</span><span class="m">김미경 MKTV</span><span class="m">위즈덤2.0</span><span class="m">채널예스</span><span class="m">주간조선</span><span class="m">폴인(folin)</span>
+      <span class="m">한겨레</span><span class="m">MBC 14F</span><span class="m">한국일보</span><span class="m">김미경 MKTV</span><span class="m">위즈덤2.0</span><span class="m">채널예스</span><span class="m">주간조선</span><span class="m">폴인(folin)</span>
+    </div>
+  </div>
+  <div class="wrap" style="text-align:center"><p class="books">저서 <b>『커뮤니티 빌더들』</b>(2026) · 추천사 <b>『자기만의 일』 『잘 되는 커뮤니티는 리더십이 다르다』</b> 등</p>
+    <a class="brunchlink" href="https://brunch.co.kr/@rory/2344" target="_blank">전체 미디어·인터뷰 보기 →</a></div>
+</section>
+
+<!-- ABOUT -->
+<section class="mist" id="about">
+  <div class="wrap reveal">
+    <div class="eyebrow">About · 대표 백영선</div>
+    <h2 class="head">현장에서 쌓은 깊이</h2>
+    <div class="about-grid">
+      <div>
+        <p class="sub" style="max-width:none">Daum·카카오에서 HR·교육·조직문화·브런치·스토리펀딩을 거쳐, 로컬·커뮤니티 현장으로. 그 경험으로 기업과 기관의 변화를 설계합니다.</p>
+        <p class="quote">“삶은 콜라보예요.<br>일도, 그렇고요.”<span>— 백영선 (브런치 글 중에서)</span></p>
+        <div class="twin">
+          <div><b>1인 컴퍼니</b><small>한 사람의 책임과 깊이</small></div>
+          <div><b>커뮤니티 컴퍼니</b><small>과제에 맞춰 모이는 팀</small></div>
+        </div>
+        <p class="edu"><b>학력</b> 경희대 경영대학원 문화예술경영 · 연세대 브랜드매니지먼트<br><b>자격</b> 한국코칭협회 KAC · 라이프디자이너 · 커리어코칭 1급</p>
+      </div>
+      <div>
+        <ul class="tl">
+          <li><span class="yr">2019–현재</span><span class="now">플라잉웨일 대표</span></li>
+          <li><span class="yr">2019–현재</span><span class="now">중앙일보 폴인(folin) 링커</span></li>
+          <li><span class="yr">2026</span><span class="now">대한민국 문화도시 컨설턴트</span></li>
+          <li><span class="yr">2024–현재</span><span class="now">한림대 국제대학원 겸임교수</span></li>
+          <li><span class="yr">前</span><span class="past">로컬브랜드포럼 사무국장 (2024–2026)</span></li>
+          <li><span class="yr">前</span><span class="past">카카오 성장지원·브런치·스토리펀딩 / 카카오임팩트</span></li>
+          <li><span class="yr">前</span><span class="past">Daum HR·마케팅 / 한화 63시티 문화사업부</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSE -->
+<section id="propose">
+  <div class="wrap reveal">
+    <div class="eyebrow">Propose · 제안하기</div>
+    <h2 class="head">새로운 변화를, <span class="bl">함께</span></h2>
+    <p class="sub">작은 강의 하나부터 큰 프로젝트까지. 버튼을 누르면 메일 제목이 채워집니다. 규모·기간·역할은 유연하게 협의해요.</p>
+    <div class="proc">
+      <div class="pstep"><b>STEP 1</b><span>제안·문의</span></div>
+      <div class="pstep"><b>STEP 2</b><span>협의·진단</span></div>
+      <div class="pstep"><b>STEP 3</b><span>설계·제안</span></div>
+      <div class="pstep"><b>STEP 4</b><span>실행·운영</span></div>
+      <div class="pstep"><b>STEP 5</b><span>회고·확장</span></div>
+    </div>
+    <div class="pgrid">
+      <a class="pcard" href="mailto:rockdamf@gmail.com?subject=[제안] 성수 인사이트 투어(walkshop)"><span><b>성수 인사이트 투어</b><span>walkshop · 팀/임원</span></span><span class="arr">→</span></a>
+      <a class="pcard" href="mailto:rockdamf@gmail.com?subject=[제안] 팀 워크샵 · 팀핏"><span><b>팀 워크샵 · 팀핏</b><span>일하는 방식 설계</span></span><span class="arr">→</span></a>
+      <a class="pcard" href="mailto:rockdamf@gmail.com?subject=[제안] 강의/특강"><span><b>강의 · 특강</b><span>브랜딩·커뮤니티·고객경험</span></span><span class="arr">→</span></a>
+      <a class="pcard" href="mailto:rockdamf@gmail.com?subject=[제안] 컨퍼런스·행사 기획/운영"><span><b>컨퍼런스 · 행사</b><span>기획·운영</span></span><span class="arr">→</span></a>
+      <a class="pcard" href="mailto:rockdamf@gmail.com?subject=[제안] 커뮤니티 빌딩"><span><b>커뮤니티 빌딩</b><span>연결과 연대 설계</span></span><span class="arr">→</span></a>
+      <a class="pcard" href="mailto:rockdamf@gmail.com?subject=[제안] 플라잉웨일 자유 제안"><span><b>자유롭게 제안</b><span>무엇이든 먼저</span></span><span class="arr">→</span></a>
+    </div>
+    <div class="briefcta"><a class="btn btn-pri" href="flyingwhale_brief.pdf" download>회사소개서 받기 (PDF)</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <h2>좋은 일은 대개,<br>같이 만든 일이었어요.</h2>
+    <p>그래서 2026년에도, 같이 만들 일을 찾고 있습니다. 편하게 말 걸어 주세요.</p>
+    <div class="ctlist">
+      <a class="pill" href="mailto:rockdamf@gmail.com">✉ rockdamf@gmail.com</a>
+      <a class="pill" href="tel:01073160402">📞 010-7316-0402</a>
+      <span class="pill">💬 카카오톡 rockdam</span>
+      <a class="pill" href="https://www.instagram.com/hi_flyingwhale/" target="_blank">📷 인스타그램</a>
+      <a class="pill" href="https://linktr.ee/flyingwhale" target="_blank">🔗 링크트리</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><img src="fw_star.png" alt="" style="width:22px;height:22px">플라잉웨일 · Flying Whale</div>
+    대표 백영선 · <a href="mailto:rockdamf@gmail.com">rockdamf@gmail.com</a> · 010-7316-0402<br>
+    <a href="https://brunch.co.kr/@rory/2347" target="_blank">브런치</a> · <a href="https://www.instagram.com/hi_flyingwhale/" target="_blank">인스타그램</a> · <a href="https://linktr.ee/flyingwhale" target="_blank">링크트리</a><br>
+    <span style="opacity:.65">getting better &amp; getting bitter</span>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // gentle wave on tagline: split into letters with staggered delay
+  document.querySelectorAll('.wavetext').forEach(el=>{
+    const nodes=[...el.childNodes]; el.innerHTML=''; let i=0;
+    nodes.forEach(node=>{
+      const txt=node.textContent; const cls=node.nodeType===1?node.className:'';
+      [...txt].forEach(ch=>{
+        if(ch===' '){ el.appendChild(document.createTextNode(' ')); return; }
+        const s=document.createElement('span'); s.textContent=ch;
+        s.className='wv'+(cls?(' '+cls):''); s.style.animationDelay=(i*0.06)+'s';
+        el.appendChild(s); i++;
+      });
+    });
+  });
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>{nav.style.boxShadow=scrollY>20?'0 6px 22px rgba(12,17,22,.07)':'none';});
+</script>
+</body>
+</html>
