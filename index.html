@@ -172,10 +172,10 @@
   .bb-cover,.bb-talk{position:relative;height:128px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
   .bb-cover{width:94px;background:linear-gradient(135deg,#f4d23a,#e3ad00)}
   .bb-talk{width:128px;background:linear-gradient(135deg,#2f93d6,#0e5d9e);text-decoration:none}
-  .bb-cover img,.bb-talk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .bb-ph{font-size:11px;font-weight:800;padding:8px;line-height:1.35;position:relative;z-index:1}
+  .bb-cover img,.bb-talk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .bb-ph{font-size:11px;font-weight:800;padding:8px;line-height:1.35;position:relative;z-index:0}
   .bb-cover .bb-ph{color:#5a4600} .bb-talk .bb-ph{color:#fff}
-  .bb-play{position:absolute;right:8px;bottom:8px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.92);color:#1577bf;display:flex;align-items:center;justify-content:center;font-size:11px;z-index:3}
+  .bb-badge{position:absolute;top:7px;right:7px;background:rgba(11,74,130,.92);color:#fff;font-size:10px;font-weight:800;padding:4px 9px;border-radius:14px;z-index:2;letter-spacing:-0.02em}
   .bb-info{flex:1;min-width:0}
   .bb-info .k{font-size:11px;letter-spacing:.12em;font-weight:800;color:var(--blue-d)}
   .bb-info h4{font-size:20px;font-weight:800;letter-spacing:-0.04em;margin:5px 0 6px;color:var(--ink)}
@@ -473,9 +473,9 @@
   <div class="wrap">
     <div class="bookblock">
       <div class="bb-imgs">
-        <div class="bb-cover"><img src="%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EB%B9%8C%EB%8D%94%EB%93%A4%20%EC%B1%85%20%ED%91%9C%EC%A7%80%28%EC%9E%85%EC%B2%B4%29.png" alt="커뮤니티 빌더들 책 표지" onerror="this.remove()"><span class="bb-ph">『커뮤니티<br>빌더들』</span></div>
-        <a class="bb-talk" href="https://brunch.co.kr/magazine/communitybd" target="_blank" style="width:110px"><img src="GL3_2555.jpg" alt="북토크 현장" onerror="this.remove()"><span class="bb-ph">북토크<br>현장</span><span class="bb-play">▶</span></a>
-        <a class="bb-talk" href="https://brunch.co.kr/magazine/communitybd" target="_blank" style="width:110px"><img src="KakaoTalk_Photo_2026-06-11-16-50-54%20015.jpeg" alt="북토크 현장" onerror="this.remove()"><span class="bb-ph">북토크<br>현장</span></a>
+        <div class="bb-cover"><img src="%E1%84%8F%E1%85%A5%E1%84%86%E1%85%B2%E1%84%82%E1%85%B5%E1%84%90%E1%85%B5%E1%84%87%E1%85%B5%E1%86%AF%E1%84%83%E1%85%A5%E1%84%83%E1%85%B3%E1%86%AF%20%E1%84%8E%E1%85%A2%E1%86%A8%20%E1%84%91%E1%85%AD%E1%84%8C%E1%85%B5%28%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%8E%E1%85%A6%29.png" alt="커뮤니티 빌더들 책 표지" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EB%B9%8C%EB%8D%94%EB%93%A4%20%EC%B1%85%20%ED%91%9C%EC%A7%80%28%EC%9E%85%EC%B2%B4%29.png';}else{this.remove();}"><span class="bb-ph">『커뮤니티<br>빌더들』</span></div>
+        <a class="bb-talk" href="https://brunch.co.kr/magazine/communitybd" target="_blank" style="width:110px"><img src="GL3_2555.jpg" alt="북토크 현장" onerror="this.remove()"><span class="bb-ph">북토크<br>현장</span><span class="bb-badge">북토크 현장</span></a>
+        <a class="bb-talk" href="https://brunch.co.kr/magazine/communitybd" target="_blank" style="width:110px"><img src="KakaoTalk_Photo_2026-06-11-16-50-54%20015.jpeg" alt="북토크 현장" onerror="this.remove()"><span class="bb-ph">북토크<br>현장</span><span class="bb-badge">북토크 현장</span></a>
       </div>
       <div class="bb-info">
         <span class="k">NEW BOOK · 2026</span>
